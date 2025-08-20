@@ -1,61 +1,50 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+## Atividade - Chave primária e estrangeira e alter table
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Atividade para aprender a criar tabelas ligadas por FK, e também a alterar uma migration.
 
-## About Laravel
+## Criação das migrations
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Crie a migration cadastro com o comando "php artisan make:migration create_cadastro_table":
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+<img width="1467" height="135" alt="Criação da migration cadastro" src="https://github.com/user-attachments/assets/2cb0ce3e-1c35-4924-a5f0-dc02ca4cfd3b" />
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Adicione os campos na migration cadastro:
 
-## Learning Laravel
+<img width="628" height="369" alt="Campos da tabela cadastro" src="https://github.com/user-attachments/assets/92b76fe9-8da0-4c85-a6c3-b30d377f6b58" />
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Crie a migration cadastro com o comando "php artisan make:migration create_estoque_table":
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+<img width="1437" height="128" alt="Criação da tabela estoque" src="https://github.com/user-attachments/assets/1ac76005-5e38-443d-a8df-e6ad516788ca" />
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Adicione os campos na migration estoque:
 
-## Laravel Sponsors
+<img width="719" height="392" alt="Campos da tabela estoque" src="https://github.com/user-attachments/assets/5d230c80-082d-49f8-ba4e-7bb14c26fcef" />
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Use o comando "php artisan migrate" para rodar as migrações, ou "php artisan migrate:refresh" para atualizá-las:
+<img width="1286" height="292" alt="php artisan migrate:refresh" src="https://github.com/user-attachments/assets/e3de12c3-62c6-45f7-9d6d-b64609ac042f" />
 
-### Premium Partners
+## Alteração da migration cadastro
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+Para alterar a migration cadastro, temos que criar uma outra migration antes
 
-## Contributing
+Crie a migration alter_cadastro com o comando "php artisan make:migration alter_cadastro_table":
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+<img width="1443" height="89" alt="Alteração da migration cadastro" src="https://github.com/user-attachments/assets/f50473bb-8e7a-4d65-a83a-e6422112dd06" />
 
-## Code of Conduct
+Adicione os seguintes campos na migration alter_cadastro_table:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+<img width="737" height="378" alt="Campos alter cadastro" src="https://github.com/user-attachments/assets/f5954afa-356a-441c-9092-ca10ce8bdd7e" />
 
-## Security Vulnerabilities
+Atualize o banco de dados com o comando "php artisan migrate:refresh":
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+<img width="1291" height="307" alt="php artisan migrate:fresh" src="https://github.com/user-attachments/assets/ed3b9573-0304-40c2-a749-d36120f028ef" />
 
-## License
+## Resultado
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Tabela cadastro antes da alteração
+
+<img width="363" height="89" alt="tabela cadastro antes da atualização" src="https://github.com/user-attachments/assets/98956825-f1a1-49f4-8b01-eed25f2687e6" />
+
+Tabela cadastro após a alteração
+
+<img width="525" height="48" alt="tabela cadastro após alteração" src="https://github.com/user-attachments/assets/e447fa94-5358-45fc-bf06-04bd43fd2823" />
